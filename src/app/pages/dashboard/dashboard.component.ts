@@ -26,31 +26,31 @@ export class DashboardComponent implements OnInit{
         type: 'line',
 
         data: {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
           datasets: [{
-              borderColor: "#6bd098",
-              backgroundColor: "#6bd098",
+              borderColor: "#FD26AA",
+              backgroundColor: "#BC72F3",
               pointRadius: 0,
               pointHoverRadius: 0,
-              borderWidth: 3,
-              data: [300, 310, 316, 322, 330, 326, 333, 345, 338, 354]
+              borderWidth: 1,
+              data: [330, 410, 550, 600, 430, 550, 375]
             },
-            {
-              borderColor: "#f17e5d",
-              backgroundColor: "#f17e5d",
-              pointRadius: 0,
-              pointHoverRadius: 0,
-              borderWidth: 3,
-              data: [320, 340, 365, 360, 370, 385, 390, 384, 408, 420]
-            },
-            {
-              borderColor: "#fcc468",
-              backgroundColor: "#fcc468",
-              pointRadius: 0,
-              pointHoverRadius: 0,
-              borderWidth: 3,
-              data: [370, 394, 415, 409, 425, 445, 460, 450, 478, 484]
-            }
+           /* // {
+              //borderColor: "#f17e5d",
+             // backgroundColor: "#f17e5d",
+             // pointRadius: 0,
+             // pointHoverRadius: 0,
+             // borderWidth: 3,
+             //data: [320, 340, 365, 360, 370, 385, 390, 384, 408, 420]
+            //},
+            //{
+             // borderColor: "#fcc468",
+             // backgroundColor: "#fcc468",
+             // pointRadius: 0,
+             // pointHoverRadius: 0,
+             // borderWidth: 3,
+              //data: [370, 394, 415, 409, 425, 445, 460, 450, 478, 484]
+            //} */
           ]
         },
         options: {
@@ -114,7 +114,7 @@ export class DashboardComponent implements OnInit{
               '#ef8157'
             ],
             borderWidth: 0,
-            data: [342, 480, 530, 120]
+            data: [342, 480, 100, 220]
           }]
         },
 
