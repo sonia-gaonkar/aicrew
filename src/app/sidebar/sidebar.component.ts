@@ -6,6 +6,7 @@ export interface RouteInfo {
     title: string;
     icon: string;
     class: string;
+    data: object;
 }
 
 export const ROUTES: RouteInfo[] = [
@@ -18,12 +19,12 @@ export const ROUTES: RouteInfo[] = [
     { path: '/typography',    title: 'Typography',        icon:'nc-caps-small', class: '' },
     { path: '/upgrade',       title: 'Upgrade to PRO',    icon:'nc-spaceship',  class: 'active-pro' }, */
 
-    { path: '/dashboard',     title: 'Dashboard',         icon:'nc-bank',       class: '' },
-    { path: '/icons',         title: 'Insuree',             icon:'nc-ambulance',    class: '' },
-    { path: '/maps',          title: 'Payments',              icon:'nc-money-coins',      class: '' },
-    { path: '/notifications', title: 'Reports',     icon:'nc-map-big',    class: '' },
-    { path: '/user',          title: 'Calendar',      icon:'nc-credit-card',  class: '' },
-    { path: '/table',         title: '% Calculator',        icon:'nc-tap-01',    class: '' }
+    { path: '/dashboard',     title: 'Dashboard',         icon:'nc-bank',   data: {routeName: "dashboard"},     class: '' },
+    { path: '/table',         title: 'Review Claims',     icon:'nc-ambulance',   data: {routeName: "claims"}, class: '' },
+    { path: '/maps',          title: 'Generate Quote',    icon:'nc-money-coins',   data: {routeName: "Hello1"},    class: '' },
+    { path: '/notifications', title: 'Assited Query Response', icon:'nc-map-big',  data: {routeName: "Hello1"},   class: '' },
+    //{ path: '/user',          title: 'Calendar',          icon:'nc-credit-card',  class: '' },
+    // { path: '/table',         title: '% Calculator',      icon:'nc-tap-01',    class: '' }
 
 ];
 

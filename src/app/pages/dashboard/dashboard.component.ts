@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit{
               pointRadius: 0,
               pointHoverRadius: 0,
               borderWidth: 1,
-              data: [330, 410, 550, 600, 430, 550, 375]
+              data: [11, 14, 8, 10, 15, 12, 8]
             },
            /* // {
               //borderColor: "#f17e5d",

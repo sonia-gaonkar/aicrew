@@ -28,4 +28,95 @@ export class MapsComponent implements OnInit {
         // To add the marker to the map, call setMap();
         marker.setMap(map);
     }
+
+    tableData = {
+        "headers": [
+          "Medical History",
+          "Age/Gender/BMI",
+          "Occupation",
+          "Action"
+        ],
+        "data": [
+          {
+            "properties": [
+              {
+                "key": "Regular walks & Yoga enthusiast"
+              },
+              {
+                "key": "48/M/25.6"
+              },
+              {
+                "key": "Lawyer"
+              },
+              {
+                "key": "Approve Quote"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "key": "Non smoker, regular gym goer, famil history of high Blood pressure"
+              },
+              {
+                "key": "30/F/24"
+              },
+              {
+                "key": "Architect"
+              },
+              {
+                "key": "Approve Quote"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "key": "Obesity, family history of type 2 diabetes"
+              },
+              {
+                "key": "47/M/28"
+              },
+              {
+                "key": "Sales Executive"
+              },
+              {
+                "key": "Approve Quote"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "key": "Physically fit, no history of heart diseases"
+              },
+              {
+                "key": "25/M/27.6"
+              },
+              {
+                "key": "Engineer"
+              },
+              {
+                "key": "Approve Quote"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "key": "No pre-existing conditions, family history of hypertension"
+              },
+              {
+                "key": "33/F/24.3"
+              },
+              {
+                "key": "Teacher"
+              },
+              {
+                "key": "Approve Quote"
+              }
+            ]
+          } 
+        ]
+    }
 }

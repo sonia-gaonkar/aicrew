@@ -38,4 +38,80 @@ export class TableComponent implements OnInit{
             ]
         };
     }
+
+    tableData = {
+        "headers": [
+          "Claim Description",
+          "Claim Summary",
+          "Action"
+        ],
+        "data": [
+          {
+            "properties": [
+              {
+                "key": "X-ray, chest, single view\n MRI, knee, without contrast \n CT scan, abdomen and pelvis, with contrast",
+                "key1" : "sssssssss"
+              },
+              {
+                "key": "48/M/25.6"
+              },
+              {
+                "key": "Lawyer"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "key": "Non smoker, regular gym goer, famil history of high Blood pressure"
+              },
+              {
+                "key": "30/F/24"
+              },
+              {
+                "key": "Architect"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "key": "Obesity, family history of type 2 diabetes"
+              },
+              {
+                "key": "47/M/28"
+              },
+              {
+                "key": "Sales Executive"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "key": "Physically fit, no history of heart diseases"
+              },
+              {
+                "key": "25/M/27.6"
+              },
+              {
+                "key": "Engineer"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "key": "No pre-existing conditions, family history of hypertension"
+              },
+              {
+                "key": "33/F/24.3"
+              },
+              {
+                "key": "Teacher"
+              }
+            ]
+          } 
+        ]
+    }
 }
