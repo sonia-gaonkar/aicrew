@@ -9,7 +9,7 @@ Paper Dashboard Angular is a Bootstrap Admin Template which combines soft colors
 
  Paper Dashboard Angular is built using the same design language as [Paper Kit](http://www.creative-tim.com/product/paper-kit), which you can use for the presentation pages of your website. You can easily use them together, or pick between them depending on the project you have.
 
- **Example Pages**  We wanted  to fully display the power of this dashboard, so the kit comes packed with examples showing you how to use the components.
+ **Example Pages** We wanted to fully display the power of this dashboard, so the kit comes packed with examples showing you how to use the components.
 
  ## Table of Contents
 
