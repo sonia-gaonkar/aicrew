@@ -235,7 +235,7 @@ export class TableComponent implements OnInit{
 
       let headers = new HttpHeaders({});
       this.http
-      .get<any>('http://localhost:8080/sample/getAllBills/'+id, {
+      .get<any>('http://localhost:8080/sample/claims/'+id, {
         headers: headers
       })
         .subscribe(data => {
@@ -243,7 +243,7 @@ export class TableComponent implements OnInit{
           this.tableDatapopup.data = data
       });
 
-      this.tableDatapopup.data = [{"bill_id":1,"bill_date":"2023-01-02","bill_description":"Consultation charges","bill_amount":200.0,"claim_id":1},{"bill_id":2,"bill_date":"2023-01-02","bill_description":"ECG charges","bill_amount":200.0,"claim_id":1}]
+      //this.tableDatapopup.data = [{"bill_id":1,"bill_date":"2023-01-02","bill_description":"Consultation charges","bill_amount":200.0,"claim_id":1},{"bill_id":2,"bill_date":"2023-01-02","bill_description":"ECG charges","bill_amount":200.0,"claim_id":1}]
 
       this.totalsum = 450;
 
