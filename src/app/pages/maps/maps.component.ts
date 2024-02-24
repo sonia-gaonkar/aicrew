@@ -39,7 +39,8 @@ export class MapsComponent implements OnInit {
 		let headers = new HttpHeaders({});
 
 		this.http
-			.get<any>('http://10.244.44.101:8080/sample/getAllUnderwriting', {
+			//.get<any>('http://10.244.44.101:8080/sample/getAllUnderwriting', {
+      .get<any>('http://localhost:8080/sample/getAllUnderwriting', {
 				headers: headers
 			})
 			.subscribe(data => {
