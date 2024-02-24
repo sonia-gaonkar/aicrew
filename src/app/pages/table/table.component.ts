@@ -235,7 +235,7 @@ export class TableComponent implements OnInit{
 
       let headers = new HttpHeaders({});
       this.http
-      .get<any>('http://10.244.44.101:8080/sample/getAllBills/'+id, {
+      .get<any>('http://localhost:8080/sample/getAllBills/'+id, {
         headers: headers
       })
         .subscribe(data => {
