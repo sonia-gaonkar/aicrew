@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 declare interface TableData {
     headerRow: string[];
@@ -21,31 +22,33 @@ export class TableComponent implements OnInit{
     public chartColor;
     public chartEmail;
     public chartHours;
+    constructor(private http: HttpClient) {}
+    public tableData: any;
 
     ngOnInit(){
-       /*         this.tableData1 = {
-            headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
-            dataRows: [
-                ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-                ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-                ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-                ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-                ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-                ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
-            ]
-        };
-        this.tableData2 = {
-            headerRow: [ 'ID', 'Name',  'Salary', 'Country', 'City' ],
-            dataRows: [
-                ['1', 'Dakota Rice','$36,738', 'Niger', 'Oud-Turnhout' ],
-                ['2', 'Minerva Hooper', '$23,789', 'Curaçao', 'Sinaai-Waas'],
-                ['3', 'Sage Rodriguez', '$56,142', 'Netherlands', 'Baileux' ],
-                ['4', 'Philip Chaney', '$38,735', 'Korea, South', 'Overland Park' ],
-                ['5', 'Doris Greene', '$63,542', 'Malawi', 'Feldkirchen in Kärnten', ],
-                ['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester' ]
-            ]
-        }; */
 
+        this.tableData = {
+            "headers": [
+              "Age",
+              "Gender",
+              "Occupation",
+              "Medical History",
+              "Risk Meter",
+              "Rate Meter",
+              "Action"
+            ],
+            "data": []
+        }
+
+        let headers = new HttpHeaders({});
+		this.http
+			.get<any>('http://10.244.44.101:8080/sample/getAllClaims', {
+				headers: headers
+			})
+			.subscribe(data => {
+				console.log(data);
+                this.tableData.data = data
+		});
 
         this.canvas = document.getElementById("chartEmail");
         this.ctx = this.canvas.getContext("2d");
@@ -121,7 +124,7 @@ export class TableComponent implements OnInit{
           pointBorderColor: '#fbc658',
           pointRadius: 2,
           pointHoverRadius: 2,
-          pointBorderWidth: 5,
+          pointBorderWidth: 3,
         };
   
         var dataSecond = {
@@ -132,7 +135,7 @@ export class TableComponent implements OnInit{
           pointBorderColor: '#51CACF',
           pointRadius: 2,
           pointHoverRadius: 2,
-          pointBorderWidth: 5
+          pointBorderWidth: 3
         };
 
         var data3 = {
@@ -143,7 +146,7 @@ export class TableComponent implements OnInit{
             pointBorderColor: '#ef8157',
             pointRadius: 2,
             pointHoverRadius: 2,
-            pointBorderWidth: 5
+            pointBorderWidth: 3
         };
 
         var data4 = {
@@ -154,7 +157,7 @@ export class TableComponent implements OnInit{
             pointBorderColor: '#e3e3e3',
             pointRadius: 2,
             pointHoverRadius: 2,
-            pointBorderWidth: 5
+            pointBorderWidth: 3
         };
 
   
@@ -178,116 +181,5 @@ export class TableComponent implements OnInit{
           });
 
     }
-
     
-
-  /*  [{"id":1,"hospital":"Apollo Hospital","patientName":"Govind Sharma","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":2,"hospital":"Tata Memorial Hospital","patientName":"Shweta Singh","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":3,"hospital":"Apollo Hospital","patientName":"Sameer Kumar","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":4,"hospital":"Nanavati Hospital","patientName":"Raj Khosla","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":5,"hospital":"Breach Candy Hospital Trust","patientName":"Manu Sharma","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"}]
- */
-    tableData = {
-        "headers": [
-          "Claim ID",
-          "Hospital Name",
-          "Patient Name",
-          "Claim Description",
-          "Claim Summary",
-          "Action"
-        ],
-        "data": [
-          {
-            "properties": [
-              {
-                "key": "1",
-              },
-              {
-                "key": "Apollo Hospital"
-              },
-              {
-                "key": "Govind Sharma"
-              },
-              {
-                "key": "Diagnostic Services"
-              },
-              {
-                "key": "X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"
-              }
-            ]
-          },
-          {
-            "properties": [
-              {
-                "key": "2",
-              },
-              {
-                "key": "Tata Memorial Hospital"
-              },
-              {
-                "key": "Shweta Singh"
-              },
-              {
-                "key": "Diagnostic Services"
-              },
-              {
-                "key": "Ultrasound, abdomen Mammogram, screening Echocardiogram, transthoracic"
-              }
-            ]
-          },
-          {
-            "properties": [
-              {
-                "key": "3",
-              },
-              {
-                "key": "KLE Hospital"
-              },
-              {
-                "key": "Sameer Kumar"
-              },
-              {
-                "key": "Laboratory Tests"
-              },
-              {
-                "key": "Complete blood count (CBC), Comprehensive metabolic panel (CMP), Urinalysis"
-              }
-            ]
-          },
-          {
-            "properties": [
-              {
-                "key": "4",
-              },
-              {
-                "key": "Nanavati Hospital"
-              },
-              {
-                "key": "Raj Khosla"
-              },
-              {
-                "key": "Procedures"
-              },
-              {
-                "key": "Colonoscopy, with biopsy, Gastroscopy, with esophageal dilation, Laparoscopy diagnostic"
-              }
-            ]
-          },
-          {
-            "properties": [
-              {
-                "key": "5",
-              },
-              {
-                "key": "Breach Candy Hospital Trust"
-              },
-              {
-                "key": "Manu Sharma"
-              },
-              {
-                "key": "Surgical Procedures"
-              },
-              {
-                "key": "Appendectomy, Cholecystectomy, Hysterectomy"
-              }
-            ]
-          }
-        ]
-    }
 }
