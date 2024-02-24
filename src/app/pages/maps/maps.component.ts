@@ -15,18 +15,6 @@ export class MapsComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-
-    // API Call
-		let headers = new HttpHeaders({});
-		this.http
-			.get<any>('https://reqbin.com/echo/get/json', {
-				headers: headers
-			})
-			.subscribe(data => {
-				console.log(data);
-		});
-
-
     this.tableData = {
       "headers": [
         "Age",
@@ -37,16 +25,19 @@ export class MapsComponent implements OnInit {
         "Rate Meter",
         "Action"
       ],
-      "data": [
-        {
-          "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "Lawyer", "medicalhistory": "Approve Quote", "risk": "48/M/25.6", "rate": "Lawyer", "action": "Approve Quote"
-        },
-        {
-          "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "Lawyer", "medicalhistory": "Approve Quote", "risk": "48/M/25.6", "rate": "Lawyer", "action": "Approve Quote"
-        }
-      ]
+      "data": []
     }
 
+    // API Call
+		let headers = new HttpHeaders({});
+		this.http
+			.get<any>('http://localhost:8080/sample/getAllUnderwriting', {
+				headers: headers
+			})
+			.subscribe(data => {
+				console.log(data);
+        this.tableData.data = data
+		});
   }
 
 
