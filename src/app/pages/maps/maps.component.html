@@ -1,64 +1,64 @@
 <div class="row">
   <div class="col-md-12">
     <div class="update ml-auto mr-auto">
-      <button type="submit" class="btn btn-primary btn-round" data-toggle="modal" data-target="#exampleModal">Claims Adjustor</button>
+      <button
+        type="submit"
+        class="btn btn-primary btn-round"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Claims Adjustor
+      </button>
     </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
 
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title"> Review & Underwriting</h4>
+        <h4 class="card-title">Review & Underwriting</h4>
       </div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table">
-            <thead class=" text-primary">
+            <thead class="text-primary">
               <tr>
-                <th *ngFor="let header of tableData.headers">{{header}}</th>
+                <th *ngFor="let header of tableData.headers">{{ header }}</th>
               </tr>
             </thead>
             <tbody>
-             
-                <tr *ngFor="let row of tableData.data">
-                  <td>{{row.age}}</td>
-                  <td>{{row.gender}}</td>
-                  <td>{{row.occupation}}</td>
-                  <td>{{row.medicalHistory}}</td>
-                  <td>{{row.riskMeter}}</td>
-                  <td>{{row.rateMeter}}</td>
-                  <td>{{row.approved}}</td>
-                
+              <tr *ngFor="let row of tableData.data">
+                <td>{{ row.age }}</td>
+                <td>{{ row.gender }}</td>
+                <td>{{ row.occupation }}</td>
+                <td>{{ row.medicalHistory }}</td>
+                <td style="text-align: center;">
+                  <span *ngIf="row.riskMeter === 'low'">
+                    <img
+                      height="50px"
+                      width="50px"
+                      src="assets/img/low.jpg"
+                      alt="Low risk"
+                  /></span>
+                  <span *ngIf="row.riskMeter === 'high'">
+                    <img
+                      height="50px"
+                      width="50px"
+                      src="assets/img/high.jpg"
+                      alt="High risk"
+                  /></span>
+                  <span *ngIf="row.riskMeter === 'medium'">
+                    <img
+                      height="50px"
+                      width="50px"
+                      src="assets/img/medium.jpg"
+                      alt="Medium risk"
+                  /></span>
+                </td>
+                <td>{{ row.rateMeter }}</td>
+                <td>{{ row.approved }} <button type="button" class="btn btn-success btn-sm" style="margin-bottom:2px;">Approve</button><button type="button" class="btn btn-danger btn-sm">Reject</button></td>
               </tr>
             </tbody>
           </table>
         </div>
-
-        
       </div>
     </div>
   </div>
 </div>
-
