@@ -72,12 +72,6 @@ export class TableComponent implements OnInit{
     //this.tableData.data =  [{"id":1,"hospital":"Apollo Hospital","patientName":"Govind Sharma","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":2,"hospital":"Tata Memorial Hospital","patientName":"Shweta Singh","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":3,"hospital":"Apollo Hospital","patientName":"Sameer Kumar","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":4,"hospital":"Nanavati Hospital","patientName":"Raj Khosla","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":5,"hospital":"Breach Candy Hospital Trust","patientName":"Manu Sharma","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"}]
 
 
-
-
-
-
-
-
         this.canvas = document.getElementById("chartEmail");
         this.ctx = this.canvas.getContext("2d");
         this.chartEmail = new Chart(this.ctx, {
@@ -243,10 +237,11 @@ export class TableComponent implements OnInit{
           this.tableDatapopup.data = data
       });
 
-      //this.tableDatapopup.data = [{"bill_id":1,"bill_date":"2023-01-02","bill_description":"Consultation charges","bill_amount":200.0,"claim_id":1},{"bill_id":2,"bill_date":"2023-01-02","bill_description":"ECG charges","bill_amount":200.0,"claim_id":1}]
+    // this.tableDatapopup.data = [{"bill_id":1,"bill_date":"2023-01-02","bill_description":"Consultation charges","bill_amount":220.0,"claim_id":1},{"bill_id":2,"bill_date":"2023-01-02","bill_description":"ECG charges","bill_amount":200.0,"claim_id":1}]
 
-      this.totalsum = 450;
-
+      //this.totalsum = 450;
+      this.totalsum = this.tableDatapopup.data.reduce((n: any, {bill_amount}: any) => n + bill_amount, 0)
+      console.log('.......................',  this.totalsum )
 
       this.OpenPopup(this.popup)
       
