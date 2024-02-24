@@ -28,7 +28,7 @@ export class MapsComponent implements OnInit {
         "Occupation",
         "Medical History",
         "Risk Meter",
-        "Rate Meter",
+        "Rate Per Month",
         "Action"
       ],
       "data": []
@@ -48,15 +48,15 @@ export class MapsComponent implements OnInit {
         this.tableData.data = data
 		});
     
-    this.tableData.data = [{
-      "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "Lawyer", "medicalhistory": "Approve Quote", "riskMeter": "low", "rateMeter": "60", "action": "Approve Quote"
+   /* this.tableData.data = [{
+      "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "Lawyer", "medicalhistory": "Approve Quote", "riskMeter": "low", "rateMeter": "1111", "action": "Approve Quote"
     },
     {
-      "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "Lawyer", "medicalhistory": "Approve Quote", "riskMeter": "medium", "rateMeter": "20", "action": "Approve Quote"
+      "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "Lawyer", "medicalhistory": "Approve Quote", "riskMeter": "medium", "rateMeter": "3000", "action": "Approve Quote"
     },
     {
       "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "10", "medicalhistory": "Approve Quote", "riskMeter": "high", "rateMeter": "40", "action": "Approve Quote"
-    }]
+    }]*/
     
     
     this.chartColor = "#FFFFFF";
@@ -75,7 +75,7 @@ export class MapsComponent implements OnInit {
             pointRadius: 0,
             pointHoverRadius: 0,
             borderWidth: 1,
-            data: [11, 14, 8, 10, 15, 12, 8]
+            data: [200, 250, 228, 180, 400, 200,170, 177, 250, 250,300,400]
           },
          
         ]

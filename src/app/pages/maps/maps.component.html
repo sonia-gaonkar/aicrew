@@ -9,7 +9,7 @@
               <div class="col-12 col-md-12">
                 <div class="numbers">
                   <p class="card-category" style="text-align: left;">Quote Rate</p>
-                  <p class="card-title" style="font-size:18px; text-align: left;">$68557M
+                  <p class="card-title" style="font-size:18px; text-align: left;">60%
                     <p>
                 </div>
               </div>
@@ -28,8 +28,8 @@
             <div class="row">
               <div class="col-12 col-md-12">
                 <div class="numbers">
-                  <p class="card-category" style="text-align: left;">Contracts Rate</p>
-                  <p class="card-title" style="font-size:18px; text-align: left;">$26187.5M
+                  <p class="card-category" style="text-align: left;">Contract Rate</p>
+                  <p class="card-title" style="font-size:18px; text-align: left;">65%
                     <p>
                 </div>
               </div>
@@ -49,8 +49,8 @@
       <div class="col-md-8">
         <div class="card ">
           <div class="card-header ">
-            <h5 class="card-title">Average Handling Time</h5>
-            <p class="card-category">Weekly performance</p>
+            <h5 class="card-title">Number Of Policies Pending</h5>
+            <p class="card-category">Monthly performance</p>
           </div>
           <div class="card-body ">
             <canvas id=chartHours width="400" height="100"></canvas>
@@ -72,7 +72,7 @@
               <div class="col-12 col-md-12">
                 <div class="numbers">
                   <p class="card-category" style="text-align: left;">Retention Rate</p>
-                  <p class="card-title" style="font-size:18px; text-align: left;">$68557M
+                  <p class="card-title" style="font-size:18px; text-align: left;">80%
                     <p>
                 </div>
               </div>
@@ -91,8 +91,8 @@
             <div class="row">
               <div class="col-12 col-md-12">
                 <div class="numbers">
-                  <p class="card-category" style="text-align: left;">New Policy</p>
-                  <p class="card-title" style="font-size:18px; text-align: left;">$26187.5M
+                  <p class="card-category" style="text-align: left;">New Policy/Agent</p>
+                  <p class="card-title" style="font-size:18px; text-align: left;">65
                     <p>
                 </div>
               </div>
@@ -153,7 +153,7 @@
                       alt="Medium risk"
                   /></span>
                 </td>
-                <td>{{ row.rateMeter }}<input type="range" min="0" max="100"  value="{{ row.rateMeter }}" /></td>
+                <td>{{ row.rateMeter }} &nbsp;<input type="range" min="1000" max="10000"  value="{{ row.rateMeter }}" /></td>
                 <td><button type="button" class="btn btn-success btn-sm">Approve</button>&nbsp;
                   <button type="button" class="btn btn-danger btn-sm">Reject</button></td>
               </tr>
