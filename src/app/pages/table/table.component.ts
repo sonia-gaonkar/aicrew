@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Chart from 'chart.js';
 
 declare interface TableData {
     headerRow: string[];
@@ -14,8 +15,15 @@ declare interface TableData {
 export class TableComponent implements OnInit{
     public tableData1: TableData;
     public tableData2: TableData;
+
+    public canvas : any;
+    public ctx;
+    public chartColor;
+    public chartEmail;
+    public chartHours;
+
     ngOnInit(){
-        this.tableData1 = {
+       /*         this.tableData1 = {
             headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
             dataRows: [
                 ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
@@ -36,11 +44,150 @@ export class TableComponent implements OnInit{
                 ['5', 'Doris Greene', '$63,542', 'Malawi', 'Feldkirchen in Kärnten', ],
                 ['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester' ]
             ]
+        }; */
+
+
+        this.canvas = document.getElementById("chartEmail");
+        this.ctx = this.canvas.getContext("2d");
+        this.chartEmail = new Chart(this.ctx, {
+          type: 'pie',
+          data: {
+            labels: [1, 2, 3],
+            datasets: [{
+              label: "Emails",
+              pointRadius: 0,
+              pointHoverRadius: 0,
+              backgroundColor: [
+                '#e3e3e3',
+                '#4acccd',
+                '#fcc468',
+                '#ef8157'
+              ],
+              borderWidth: 0,
+              data: [235, 600, 375, 105]
+            }]
+          },
+  
+          options: {
+            legend: {
+              display: false
+            },
+            pieceLabel: {
+              render: 'percentage',
+              fontColor: ['white'],
+              precision: 2
+            },
+            tooltips: {
+              enabled: false
+            },
+  
+            scales: {
+              yAxes: [{
+  
+                ticks: {
+                  display: false
+                },
+                gridLines: {
+                  drawBorder: false,
+                  zeroLineColor: "transparent",
+                  color: 'rgba(255,255,255,0.05)'
+                }
+  
+              }],
+  
+              xAxes: [{
+                barPercentage: 1.6,
+                gridLines: {
+                  drawBorder: false,
+                  color: 'rgba(255,255,255,0.1)',
+                  zeroLineColor: "transparent"
+                },
+                ticks: {
+                  display: false,
+                }
+              }]
+            },
+          }
+        });
+
+
+        var speedCanvas = document.getElementById("speedChart");
+
+        var dataFirst = {
+          data: [300, 139, 515, 620, 330, 440, 640, 850, 225, 430, 550, 780],
+          fill: false,
+          borderColor: '#fbc658',
+          backgroundColor: 'transparent',
+          pointBorderColor: '#fbc658',
+          pointRadius: 2,
+          pointHoverRadius: 2,
+          pointBorderWidth: 5,
         };
+  
+        var dataSecond = {
+          data: [100, 523, 108, 127, 280, 627, 130, 334, 442, 545, 155, 363],
+          fill: false,
+          borderColor: '#51CACF',
+          backgroundColor: 'transparent',
+          pointBorderColor: '#51CACF',
+          pointRadius: 2,
+          pointHoverRadius: 2,
+          pointBorderWidth: 5
+        };
+
+        var data3 = {
+            data: [500, 150, 340, 656, 278, 427, 534, 480, 290, 644, 555, 363],
+            fill: false,
+            borderColor: '#ef8157',
+            backgroundColor: 'transparent',
+            pointBorderColor: '#ef8157',
+            pointRadius: 2,
+            pointHoverRadius: 2,
+            pointBorderWidth: 5
+        };
+
+        var data4 = {
+            data: [170, 345, 190, 555, 456, 180, 240, 206, 400, 384, 231, 345],
+            fill: false,
+            borderColor: '#e3e3e3',
+            backgroundColor: 'transparent',
+            pointBorderColor: '#e3e3e3',
+            pointRadius: 2,
+            pointHoverRadius: 2,
+            pointBorderWidth: 5
+        };
+
+  
+        var speedData = {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          datasets: [dataFirst, dataSecond, data3, data4]
+        };
+
+        var chartOptions = {
+            legend: {
+              display: false,
+              position: 'top'
+            }
+          };
+    
+          var lineChart = new Chart(speedCanvas, {
+            type: 'line',
+            hover: false,
+            data: speedData,
+            options: chartOptions
+          });
+
     }
 
+    
+
+  /*  [{"id":1,"hospital":"Apollo Hospital","patientName":"Govind Sharma","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":2,"hospital":"Tata Memorial Hospital","patientName":"Shweta Singh","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":3,"hospital":"Apollo Hospital","patientName":"Sameer Kumar","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":4,"hospital":"Nanavati Hospital","patientName":"Raj Khosla","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":5,"hospital":"Breach Candy Hospital Trust","patientName":"Manu Sharma","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"}]
+ */
     tableData = {
         "headers": [
+          "Claim ID",
+          "Hospital Name",
+          "Patient Name",
           "Claim Description",
           "Claim Summary",
           "Action"
@@ -49,69 +196,98 @@ export class TableComponent implements OnInit{
           {
             "properties": [
               {
-                "key": "X-ray, chest, single view\n MRI, knee, without contrast \n CT scan, abdomen and pelvis, with contrast",
-                "key1" : "sssssssss"
+                "key": "1",
               },
               {
-                "key": "48/M/25.6"
+                "key": "Apollo Hospital"
               },
               {
-                "key": "Lawyer"
+                "key": "Govind Sharma"
+              },
+              {
+                "key": "Diagnostic Services"
+              },
+              {
+                "key": "X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"
               }
             ]
           },
           {
             "properties": [
               {
-                "key": "Non smoker, regular gym goer, famil history of high Blood pressure"
+                "key": "2",
               },
               {
-                "key": "30/F/24"
+                "key": "Tata Memorial Hospital"
               },
               {
-                "key": "Architect"
+                "key": "Shweta Singh"
+              },
+              {
+                "key": "Diagnostic Services"
+              },
+              {
+                "key": "Ultrasound, abdomen Mammogram, screening Echocardiogram, transthoracic"
               }
             ]
           },
           {
             "properties": [
               {
-                "key": "Obesity, family history of type 2 diabetes"
+                "key": "3",
               },
               {
-                "key": "47/M/28"
+                "key": "KLE Hospital"
               },
               {
-                "key": "Sales Executive"
+                "key": "Sameer Kumar"
+              },
+              {
+                "key": "Laboratory Tests"
+              },
+              {
+                "key": "Complete blood count (CBC), Comprehensive metabolic panel (CMP), Urinalysis"
               }
             ]
           },
           {
             "properties": [
               {
-                "key": "Physically fit, no history of heart diseases"
+                "key": "4",
               },
               {
-                "key": "25/M/27.6"
+                "key": "Nanavati Hospital"
               },
               {
-                "key": "Engineer"
+                "key": "Raj Khosla"
+              },
+              {
+                "key": "Procedures"
+              },
+              {
+                "key": "Colonoscopy, with biopsy, Gastroscopy, with esophageal dilation, Laparoscopy diagnostic"
               }
             ]
           },
           {
             "properties": [
               {
-                "key": "No pre-existing conditions, family history of hypertension"
+                "key": "5",
               },
               {
-                "key": "33/F/24.3"
+                "key": "Breach Candy Hospital Trust"
               },
               {
-                "key": "Teacher"
+                "key": "Manu Sharma"
+              },
+              {
+                "key": "Surgical Procedures"
+              },
+              {
+                "key": "Appendectomy, Cholecystectomy, Hysterectomy"
               }
             ]
-          } 
+          }
         ]
     }
 }

@@ -119,17 +119,14 @@ export class DashboardComponent implements OnInit{
         },
 
         options: {
-
           legend: {
             display: false
           },
-
           pieceLabel: {
             render: 'percentage',
             fontColor: ['white'],
             precision: 2
           },
-
           tooltips: {
             enabled: false
           },

@@ -1,93 +1,118 @@
 <div class="row">
+  <div class="col-md-2">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <div class="numbers">
+              <p class="card-category" style="text-align: left;">Annual Policy</p>
+              <p class="card-title" style="font-size:18px; text-align: left;">$68557M
+                <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-clock-o"></i> In last month
+        </div>
+      </div>
+    </div>
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <div class="numbers">
+              <p class="card-category" style="text-align: left;">Claim Payout</p>
+              <p class="card-title" style="font-size:18px; text-align: left;">$26187.5M
+                <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-clock-o"></i> In last month
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-4">
+    <div class="card ">
+      <div class="card-header ">
+        <h5 class="card-title">Claims payout by category</h5>
+        <p class="card-category">Last Month Performance</p>
+      </div>
+      <div class="card-body ">
+        <canvas id="chartEmail"></canvas>
+      </div>
+      <div class="card-footer ">
+        <div class="legend">
+          <i class="fa fa-circle text-primary"></i> Cancer treatment
+          <i class="fa fa-circle text-warning"></i> Cardio treatment
+          <i class="fa fa-circle text-danger"></i> Orthopedic treatment
+          <i class="fa fa-circle text-gray"></i> Neuro treatment
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h5 class="card-title">Average Cost per Claim</h5>
+        <p class="card-category">Last Year Perforamce</p>
+      </div>
+      <div class="card-body">
+        <canvas id="speedChart" width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer">
+        <div class="chart-legend">
+          <i class="fa fa-circle text-primary"></i> Cancer
+          <i class="fa fa-circle text-warning"></i> Cardio
+          <i class="fa fa-circle text-danger"></i> Ortho
+          <i class="fa fa-circle text-gray"></i> Neuro
+        </div>
+        <hr/>
+        <div class="card-stats">
+          <i class="fa fa-check"></i> Data information certified
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-md-12">
     <div class="card">
+
+      
+
       <div class="card-header">
         <h4 class="card-title"> Review Claims</h4>
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
       </div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table">
-            <thead class=" text-primary">
-              <th>
-                Claim Description
-              </th>
-              <th>
-                Claim Summary
-              </th>
-              <th>
-                Action
-              </th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <li>X-ray, chest, single view</li>
-                  <li>MRI, knee, without contrast</li>
-                  <li>CT scan, abdomen and pelvis, with contrast</li>                  
-                </td>
-                <td>
-                  Diagnostic Services
-                </td>
-                <td>
-                  In progress
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <li>Ultrasound, abdomen</li>
-                  <li>Mammogram, screening</li>
-                  <li>Echocardiogram, transthoracic</li>
-                </td>
-                <td>
-                  Imaging Studies
-                </td>
-                <td>
-                  In progress
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <li>Complete blood count (CBC)</li>
-                  <li>Comprehensive metabolic panel (CMP)</li>
-                  <li>Urinalysis</li>
-                </td>
-                <td>
-                  Laboratory Tests
-                </td>
-                <td>
-                  Review Bill
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <li>Colonoscopy, with biopsy</li>
-                  <li>Gastroscopy, with esophageal dilation</li>
-                  <li>Laparoscopy, diagnostic</li>
-                </td>
-                <td>
-                  Procedures
-                </td>
-                <td>
-                  Processed
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <li>Appendectomy</li>
-                  <li>Cholecystectomy</li>
-                  <li>Hysterectomy</li>
-                </td>
-                <td>
-                  Surgical Procedures
-                </td>
-                <td>
-                  Review Bill
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-
+ 
           <table class="table">
             <thead class=" text-primary">
               <tr>
@@ -96,7 +121,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let row of tableData.data">
-                <td style="vertical-align: text-top;" *ngFor="let property of row.properties">{{property.key}}{{property.key_data}}</td>
+                <td style="vertical-align: text-top;" *ngFor="let property of row.properties">{{property.key}}</td>
               </tr>
             </tbody>
           </table>
