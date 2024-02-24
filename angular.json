@@ -148,7 +148,7 @@
       }
     }
   },
-  "defaultProject": "pd-free-angularcli",
+  "defaultProject": "aicrew",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

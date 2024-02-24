@@ -41,12 +41,22 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let row of tableData.data">
-                <td style="vertical-align: text-top;" *ngFor="let property of row.properties">{{property.key}}{{property.key_data}}</td>
+             
+                <tr *ngFor="let row of tableData.data">
+                  <td>{{row.age}}</td>
+                  <td>{{row.geneder}}</td>
+                  <td>{{row.occupation}}</td>
+                  <td>{{row.medicalhistory}}</td>
+                  <td>{{row.risk}}</td>
+                  <td>{{row.rate}}</td>
+                  <td>{{row.action}}</td>
+                
               </tr>
             </tbody>
           </table>
         </div>
+
+        
       </div>
     </div>
   </div>

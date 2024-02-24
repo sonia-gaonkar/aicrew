@@ -1,122 +1,53 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 declare var google: any;
+//declare var tableData: any;
 
 @Component({
-    moduleId: module.id,
-    selector: 'maps-cmp',
-    templateUrl: 'maps.component.html'
+  moduleId: module.id,
+  selector: 'maps-cmp',
+  templateUrl: 'maps.component.html'
 })
 
 export class MapsComponent implements OnInit {
-    ngOnInit() {
-        var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
-        var mapOptions = {
-          zoom: 13,
-          center: myLatlng,
-          scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
-          styles: [{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ece2d9"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#b8cb93"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","stylers":[{"visibility":"simplified"}]}]
+  public tableData: any;
+  constructor(private http: HttpClient) {}
 
+  ngOnInit() {
+
+    // API Call
+		let headers = new HttpHeaders({});
+		this.http
+			.get<any>('https://reqbin.com/echo/get/json', {
+				headers: headers
+			})
+			.subscribe(data => {
+				console.log(data);
+		});
+
+
+    this.tableData = {
+      "headers": [
+        "Age",
+        "Gender",
+        "Occupation",
+        "Medical History",
+        "Risk Meter",
+        "Rate Meter",
+        "Action"
+      ],
+      "data": [
+        {
+          "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "Lawyer", "medicalhistory": "Approve Quote", "risk": "48/M/25.6", "rate": "Lawyer", "action": "Approve Quote"
+        },
+        {
+          "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "Lawyer", "medicalhistory": "Approve Quote", "risk": "48/M/25.6", "rate": "Lawyer", "action": "Approve Quote"
         }
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            title:"Hello World!"
-        });
-
-        // To add the marker to the map, call setMap();
-        marker.setMap(map);
+      ]
     }
 
-    tableData = {
-        "headers": [
-          "Medical History",
-          "Age/Gender/BMI",
-          "Occupation",
-          "Action"
-        ],
-        "data": [
-          {
-            "properties": [
-              {
-                "key": "Regular walks & Yoga enthusiast"
-              },
-              {
-                "key": "48/M/25.6"
-              },
-              {
-                "key": "Lawyer"
-              },
-              {
-                "key": "Approve Quote"
-              }
-            ]
-          },
-          {
-            "properties": [
-              {
-                "key": "Non smoker, regular gym goer, famil history of high Blood pressure"
-              },
-              {
-                "key": "30/F/24"
-              },
-              {
-                "key": "Architect"
-              },
-              {
-                "key": "Approve Quote"
-              }
-            ]
-          },
-          {
-            "properties": [
-              {
-                "key": "Obesity, family history of type 2 diabetes"
-              },
-              {
-                "key": "47/M/28"
-              },
-              {
-                "key": "Sales Executive"
-              },
-              {
-                "key": "Approve Quote"
-              }
-            ]
-          },
-          {
-            "properties": [
-              {
-                "key": "Physically fit, no history of heart diseases"
-              },
-              {
-                "key": "25/M/27.6"
-              },
-              {
-                "key": "Engineer"
-              },
-              {
-                "key": "Approve Quote"
-              }
-            ]
-          },
-          {
-            "properties": [
-              {
-                "key": "No pre-existing conditions, family history of hypertension"
-              },
-              {
-                "key": "33/F/24.3"
-              },
-              {
-                "key": "Teacher"
-              },
-              {
-                "key": "Approve Quote"
-              }
-            ]
-          } 
-        ]
-    }
+  }
+
+
 }
