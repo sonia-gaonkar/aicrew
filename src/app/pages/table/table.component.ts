@@ -37,6 +37,7 @@ export class TableComponent implements OnInit{
     public approverejectstat: any;
     public claimsummary: any;
     public patientname: any;
+    public randnum:any;
 
 
     @ViewChild('popup', { static: false }) popup: ElementRef | undefined;
@@ -208,7 +209,7 @@ export class TableComponent implements OnInit{
 
     }
 
-    private OpenPopup(content: any, selclass = "My_Popup", size = 'lg') {
+    private OpenPopup(content: any, selclass = "My_Popup modclass", size = 'lg') {
       this.modalReference = this.modalService.open(content, { centered: true, windowClass: selclass, size });
     }
     private CloseModal() {
@@ -217,6 +218,7 @@ export class TableComponent implements OnInit{
     
     public  openmodal(id: string, claimsummary: any, patientname: any) {
 
+      this.randnum = Math.floor((Math.random() * 100) + 1);
       this.approverejectstat = "";
       this.claimsummary = claimsummary
       this.patientname = patientname
