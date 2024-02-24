@@ -23,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     NgbModule,
-    MatTableModule
+    MatTableModule,
+    NgbModule
   ],
   declarations: [
     DashboardComponent,

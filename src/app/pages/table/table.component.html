@@ -87,28 +87,8 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card">
-
-      
-
       <div class="card-header">
         <h4 class="card-title"> Review Claims</h4>
-
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -120,21 +100,132 @@
               </tr>
             </thead>
             <tbody>
-              <!-- <tr *ngFor="let row of tableData.data">
-                <td style="vertical-align: text-top;" *ngFor="let property of row.properties">{{property.key}}</td>
-              </tr> -->
               <tr *ngFor="let row of tableData.data">
                 <td>{{row.id}}</td>
                 <td>{{row.hospital}}</td>
                 <td>{{row.patientName}}</td>
                 <td>{{row.claimSummary}}</td>
                 <td>{{row.claimDescription}}</td>
-                <td>Action</td>               
-            </tr>
+                <td>
+                  <button type="button" class="btn btn-primary" (click)="openmodal(row.id, row.claimSummary, row.patientName)">
+                    Preview
+                  </button>
+                </td>               
+              </tr>
             </tbody>
           </table>
+
+
+
+
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+<ng-template #popup let-c="close()" let-d="dismiss()">
+  <style>
+
+  </style>
+  <div class="modal-header justify-content-center border-0" style="background-color: lightgrey;">
+    <button type="button" class="close" (click)='c; d;'>x</button>
+  </div>
+  <div class="modal-body">
+    <b>{{approverejectstat}}</b>
+
+    <div *ngIf="approverejectstat==Approved" class="alert alert-success alert-dismissible fade show">
+      <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="nc-icon nc-simple-remove"></i>
+      </button>
+      <span>
+        <b> Success - </b> This is a regular notification made with ".alert-success"</span>
+    </div>
+
+    <div *ngIf="approverejectstat==Rejected" class="alert alert-danger alert-dismissible fade show">
+      <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="nc-icon nc-simple-remove"></i>
+      </button>
+      <span>
+        <b> Danger - </b> This is a regular notification made with ".alert-danger"</span>
+    </div>
+
+    <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+            <b>Patient Name:</b> {{patientname}} 
+            <br>
+            <b>Claim Summary:</b> {{claimsummary}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+        <style>
+          .svg{width:10%;}
+        </style>
+
+        <script>
+          var count = $(('#count'));
+            $({ Counter: 0 }).animate({ Counter: count.text() }, {
+              duration: 5000,
+              easing: 'linear',
+              step: function () {
+                count.text(Math.ceil(this.Counter)+ "%");
+              }
+            });
+
+            var s = Snap('#animated');
+            var progress = s.select('#progress');
+
+            progress.attr({strokeDasharray: '0, 251.2'});
+            Snap.animate(0,251.2, function( value ) {
+                progress.attr({ 'stroke-dasharray':value+',251.2'});
+            }, 5000);
+        </script>
+        
+        <svg viewbox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="#FDB900"/>
+          <path fill="none" stroke-linecap="round" stroke-width="5" stroke="#fff"
+                stroke-dasharray="125.6,125.6"
+                d="M50 10
+                    a 40 40 0 0 1 0 80
+                    a 40 40 0 0 1 0 -80"/>
+          <text x="50" y="50" text-anchor="middle" dy="7" font-size="20">60%</text>
+        </svg>
+      </div>
+    </div>
+
+
+    <table class="table">
+      <thead class=" text-primary">
+        <tr>
+          <th *ngFor="let header of tableDatapopup.headers">{{header}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of tableDatapopup.data">
+          <td>{{row.bill_id}}</td>
+          <td>{{row.bill_date}}</td>
+          <td>{{row.bill_description}}</td>
+          <td>{{row.bill_amount}}</td>              
+        </tr>
+        <tr>
+          <td></td>
+          <td>Total: {{totalsum}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="approvereject('A')">
+            Approve
+          </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="approvereject('R')">
+              Reject
+            </button>
+          </td>    
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</ng-template>

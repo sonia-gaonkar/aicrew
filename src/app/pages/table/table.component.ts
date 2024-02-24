@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
+
 
 declare interface TableData {
     headerRow: string[];
@@ -22,33 +24,57 @@ export class TableComponent implements OnInit{
     public chartColor;
     public chartEmail;
     public chartHours;
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient,
+       private modalService: NgbModal,
+        config: NgbModalConfig) {
+        config.backdrop = false;
+        config.keyboard = false;
+      }
     public tableData: any;
+    private modalReference: any
+    public totalsum: any
+    public tableDatapopup: any;
+    public approverejectstat: any;
+    public claimsummary: any;
+    public patientname: any;
+
+
+    @ViewChild('popup', { static: false }) popup: ElementRef | undefined;
 
     ngOnInit(){
 
         this.tableData = {
             "headers": [
-              "Age",
-              "Gender",
-              "Occupation",
-              "Medical History",
-              "Risk Meter",
-              "Rate Meter",
+              "Claim ID",
+              "Hospital",
+              "Patient Name",
+              "Claim Summary",
+              "Claim Description",
               "Action"
             ],
             "data": []
         }
 
         let headers = new HttpHeaders({});
-		this.http
-			.get<any>('http://10.244.44.101:8080/sample/getAllClaims', {
-				headers: headers
-			})
-			.subscribe(data => {
-				console.log(data);
-                this.tableData.data = data
-		});
+		    this.http
+        .get<any>('http://10.244.44.101:8080/sample/getAllClaims', {
+          headers: headers
+        })
+          .subscribe(data => {
+            console.log(data);
+                    this.tableData.data = data
+        });
+
+
+
+    this.tableData.data =  [{"id":1,"hospital":"Apollo Hospital","patientName":"Govind Sharma","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":2,"hospital":"Tata Memorial Hospital","patientName":"Shweta Singh","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":3,"hospital":"Apollo Hospital","patientName":"Sameer Kumar","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":4,"hospital":"Nanavati Hospital","patientName":"Raj Khosla","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"},{"id":5,"hospital":"Breach Candy Hospital Trust","patientName":"Manu Sharma","claimSummary":"Diagnostic Services","claimDescription":"X-ray, chest, single view MRI, CT Scan, abdomen and pelvis"}]
+
+
+
+
+
+
+
 
         this.canvas = document.getElementById("chartEmail");
         this.ctx = this.canvas.getContext("2d");
@@ -180,6 +206,53 @@ export class TableComponent implements OnInit{
             options: chartOptions
           });
 
+    }
+
+    private OpenPopup(content: any, selclass = "My_Popup", size = 'lg') {
+      this.modalReference = this.modalService.open(content, { centered: true, windowClass: selclass, size });
+    }
+    private CloseModal() {
+      this.modalReference ? this.modalReference.close() : "";
+    }
+    
+    public  openmodal(id: string, claimsummary: any, patientname: any) {
+
+      this.approverejectstat = "";
+      this.claimsummary = claimsummary
+      this.patientname = patientname
+      this.tableDatapopup = {
+        "headers": [
+          "Bill ID",
+          "Bill Date",
+          "Description",
+          "Amount"
+        ],
+        "data": []
+    }
+
+      let headers = new HttpHeaders({});
+      this.http
+      .get<any>('http://10.244.44.101:8080/sample/getAllBills/'+id, {
+        headers: headers
+      })
+        .subscribe(data => {
+          console.log(data);
+          this.tableDatapopup.data = data
+      });
+
+      this.tableDatapopup.data = [{"bill_id":1,"bill_date":"2023-01-02","bill_description":"Consultation charges","bill_amount":200.0,"claim_id":1},{"bill_id":2,"bill_date":"2023-01-02","bill_description":"ECG charges","bill_amount":200.0,"claim_id":1}]
+
+      this.totalsum = 450;
+
+
+      this.OpenPopup(this.popup)
+      
+    }
+
+    
+    public  approvereject(status) {
+      if(status=="A") this.approverejectstat = "Approved";
+      else this.approverejectstat = "Rejected";
     }
     
 }
