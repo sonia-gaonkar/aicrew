@@ -120,9 +120,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let row of tableData.data">
+              <!-- <tr *ngFor="let row of tableData.data">
                 <td style="vertical-align: text-top;" *ngFor="let property of row.properties">{{property.key}}</td>
-              </tr>
+              </tr> -->
+              <tr *ngFor="let row of tableData.data">
+                <td>{{row.id}}</td>
+                <td>{{row.hospital}}</td>
+                <td>{{row.patientName}}</td>
+                <td>{{row.claimSummary}}</td>
+                <td>{{row.claimDescription}}</td>
+                <td>Action</td>               
+            </tr>
             </tbody>
           </table>
         </div>
