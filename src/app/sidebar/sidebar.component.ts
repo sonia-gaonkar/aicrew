@@ -21,7 +21,7 @@ export const ROUTES: RouteInfo[] = [
 
     { path: '/dashboard',     title: 'Dashboard',         icon:'nc-bank',   data: {routeName: "dashboard"},     class: '' },
     { path: '/table',         title: 'Review Claims',     icon:'nc-ambulance',   data: {routeName: "claims"}, class: '' },
-    { path: '/maps',          title: 'Generate Quote',    icon:'nc-money-coins',   data: {routeName: "Hello1"},    class: '' },
+    { path: '/underwriting',          title: 'Generate Quote',    icon:'nc-money-coins',   data: {routeName: "Hello1"},    class: '' },
     { path: '/notifications', title: 'Assited Query Response', icon:'nc-map-big',  data: {routeName: "Hello1"},   class: '' },
     //{ path: '/user',          title: 'Calendar',          icon:'nc-credit-card',  class: '' },
     // { path: '/table',         title: '% Calculator',      icon:'nc-tap-01',    class: '' }
