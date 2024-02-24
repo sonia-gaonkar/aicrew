@@ -20,9 +20,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/upgrade',       title: 'Upgrade to PRO',    icon:'nc-spaceship',  class: 'active-pro' }, */
 
     { path: '/dashboard',     title: 'Dashboard',         icon:'nc-bank',   data: {routeName: "dashboard"},     class: '' },
-    { path: '/table',         title: 'Review Claims',     icon:'nc-ambulance',   data: {routeName: "claims"}, class: '' },
+    { path: '/claims',         title: 'Review Claims',     icon:'nc-ambulance',   data: {routeName: "claims"}, class: '' },
     { path: '/underwriting',          title: 'Generate Quote',    icon:'nc-money-coins',   data: {routeName: "Hello1"},    class: '' },
-    { path: '/notifications', title: 'Assited Query Response', icon:'nc-map-big',  data: {routeName: "Hello1"},   class: '' },
+    { path: '/query', title: 'Assited Query Response', icon:'nc-map-big',  data: {routeName: "Hello1"},   class: '' },
     //{ path: '/user',          title: 'Calendar',          icon:'nc-credit-card',  class: '' },
     // { path: '/table',         title: '% Calculator',      icon:'nc-tap-01',    class: '' }
 
