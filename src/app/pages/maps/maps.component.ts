@@ -48,6 +48,16 @@ export class MapsComponent implements OnInit {
         this.tableData.data = data
 		});
     
+    this.tableData.data = [{
+      "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "Lawyer", "medicalhistory": "Approve Quote", "riskMeter": "low", "rateMeter": "60", "action": "Approve Quote"
+    },
+    {
+      "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "Lawyer", "medicalhistory": "Approve Quote", "riskMeter": "medium", "rateMeter": "20", "action": "Approve Quote"
+    },
+    {
+      "age": "Regular walks & Yoga enthusiast", "geneder": "48/M/25.6", "occupation": "10", "medicalhistory": "Approve Quote", "riskMeter": "high", "rateMeter": "40", "action": "Approve Quote"
+    }]
+    
     
     this.chartColor = "#FFFFFF";
 
