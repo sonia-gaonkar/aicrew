@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build",
+    "build": "ng build --output-path docs --base-href https://sonia-gaonkar.github.io/aicrew/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
